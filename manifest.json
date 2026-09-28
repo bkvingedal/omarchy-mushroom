@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "bk.mushroom",
+  "name": "Mushroom Alert",
+  "version": "1.0.0",
+  "author": "bkvingedal",
+  "description": "Alerts when weather conditions are prime for mushroom foraging",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Mushroom Alert",
+    "description": "Alerts when weather conditions are prime for mushroom foraging",
+    "category": "Info",
+    "allowMultiple": false,
+    "defaultSection": "center"
+  }
+}
