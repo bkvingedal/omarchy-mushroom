@@ -61,9 +61,9 @@ BarWidget {
       ? "⭐ Ideal conditions for chanterelles & autumn fungi!"
       : (mushroomData.score >= 30 ? "🌿 Conditions are fair; keep an eye on upcoming rain." : "🍂 Dry conditions for mushroom growth.")
 
-    var desc = "📍 " + root.locationName + "\\n"
-             + "🌧️ Rain (72h): " + mushroomData.rain3d + " mm\\n"
-             + "🌡️ Temp: " + mushroomData.temp + "°C · RH: " + mushroomData.rh + "% · Dew: " + mushroomData.dew + "°C\\n"
+    var desc = "📍 " + root.locationName + "\n"
+             + "🌧️ Rain (72h): " + mushroomData.rain3d + " mm\n"
+             + "🌡️ Temp: " + mushroomData.temp + "°C · RH: " + mushroomData.rh + "% · Dew: " + mushroomData.dew + "°C\n"
              + advice
 
     var cmd = "omarchy-notification-send -g '🍄' '" + headline.replace(/'/g, "") + "' '" + desc.replace(/'/g, "") + "'"

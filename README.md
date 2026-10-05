@@ -2,6 +2,8 @@
 
 An Omarchy status bar widget that tracks local weather conditions and alerts you when rainfall, temperature, and humidity are prime for mushroom foraging (chanterelles, porcini, and autumn fungi).
 
+![Mushroom Alert Demo](demo.gif)
+
 ## Features
 
 - **Foraging Index (0–100):** Evaluates local weather conditions using:
