@@ -1,16 +1,22 @@
 // Evaluates mushroom foraging suitability score (0 - 100)
 function evaluateConditions(data) {
-  if (!data || !data.current || !data.daily) {
+  if (!data || !data.current || (!data.hourly && !data.daily)) {
     return { score: 0, level: "Unknown", label: "🍄 ?", alert: false, rain3d: 0, temp: 0, rh: 0, dew: 0 };
   }
 
   var cur = data.current;
+  var hourly = data.hourly;
   var daily = data.daily;
 
-  // Rainfall in past 3 days + today (first 4 daily entries with past_days=3)
+  // Rainfall in true past 72 hours (hourly precipitation with past_hours=72, forecast_hours=0)
   var rain3d = 0;
-  if (daily.precipitation_sum && Array.isArray(daily.precipitation_sum)) {
-    var count = Math.min(4, daily.precipitation_sum.length);
+  if (hourly && Array.isArray(hourly.precipitation)) {
+    for (var i = 0; i < hourly.precipitation.length; i++) {
+      rain3d += (parseFloat(hourly.precipitation[i]) || 0);
+    }
+  } else if (daily && Array.isArray(daily.precipitation_sum)) {
+    // Fallback if daily data is passed
+    var count = Math.min(3, daily.precipitation_sum.length);
     for (var i = 0; i < count; i++) {
       rain3d += (parseFloat(daily.precipitation_sum[i]) || 0);
     }

@@ -31,7 +31,7 @@ BarWidget {
         "https://api.open-meteo.com/v1/forecast?latitude=" + encodeURIComponent(String(root.latitude))
           + "&longitude=" + encodeURIComponent(String(root.longitude))
           + "&current=temperature_2m,relative_humidity_2m,dew_point_2m,precipitation"
-          + "&past_days=3&daily=precipitation_sum,temperature_2m_max,temperature_2m_min"
+          + "&hourly=precipitation&past_hours=72&forecast_hours=0"
           + "&timezone=auto"
       ]
       fetchProc.running = true
